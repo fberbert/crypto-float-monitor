@@ -1,13 +1,13 @@
 # bitcoin-float-monitor
 
-Widget flutuante em PyQt6 que mantém a cotação do Bitcoin (par `BTCUSDT`) em tempo real usando o stream oficial da Binance. O valor fica sempre visível sobre o desktop, troca de cor conforme o movimento (verde para alta, vermelho para queda) e pode ser encerrado rapidamente com a tecla `q`.
+Floating PyQt6 widget that keeps the Bitcoin price (pair `BTCUSDT`) in real time using Binance's official stream. The value stays on top of the desktop, changes color according to price movement (green for up, red for down), and you can exit quickly with the `q` key.
 
-## Pré-requisitos
+## Requirements
 
 - Python 3.10+
-- Sistema Linux com servidor gráfico (X11/Wayland) e suporte ao PyQt6
+- Linux with a graphical session (X11/Wayland) and PyQt6 support
 
-## Como executar
+## Running
 
 ```bash
 python -m venv .venv
@@ -16,21 +16,33 @@ pip install -e .
 bitcoin-float-monitor
 ```
 
-O widget abrirá como uma pequena janela flutuante e ficará sempre visível no desktop:
+The widget opens as a small floating window and remains visible at all times:
 
-- Clique e arraste para reposicionar.
-- Pressione `q` a qualquer momento para fechar a aplicação.
-- A cor do valor indica a direção da última variação (verde = alta, vermelho = queda).
+- Click and drag to reposition.
+- Press `q` at any time to quit the app.
+- The price color indicates the latest move (green = up, red = down).
 
-## Estrutura do projeto
+### AppImage build
 
-- `pyproject.toml` – metadata e dependências do app.
-- `src/bitcoin_float_monitor/binance_client.py` – cliente WebSocket que consome o stream `BTCUSDT@trade`.
-- `src/bitcoin_float_monitor/widget.py` – widget Qt responsável pela interface flutuante.
-- `src/bitcoin_float_monitor/main.py` – ponto de entrada (`bitcoin-float-monitor`).
+The repository ships with an AppImage recipe under `AppDir/`. To build and run locally:
 
-## Próximos passos sugeridos
+```bash
+appimagetool AppDir
+chmod +x Bitcoin_Float_Monitor-x86_64.AppImage
+./Bitcoin_Float_Monitor-x86_64.AppImage
+```
 
-- Adicionar testes automatizados para o formatter de preço.
-- Permitir configuração do par/símbolo via linha de comando.
-- Disponibilizar binários empacotados (AppImage, Flatpak, etc.) para facilitar a instalação.
+For end users, distribute the generated `.AppImage` binary—after downloading they only need to `chmod +x` and execute it.
+
+## Project structure
+
+- `pyproject.toml` – app metadata and dependencies.
+- `src/bitcoin_float_monitor/binance_client.py` – WebSocket client that consumes the `BTCUSDT@trade` stream.
+- `src/bitcoin_float_monitor/widget.py` – Qt widget responsible for the floating UI.
+- `src/bitcoin_float_monitor/main.py` – entry point (`bitcoin-float-monitor`).
+
+## Next ideas
+
+- Add automated tests for the price formatter.
+- Allow configuring the pair/symbol via CLI.
+- Provide packaged binaries (AppImage, Flatpak, etc.) to simplify installation.
