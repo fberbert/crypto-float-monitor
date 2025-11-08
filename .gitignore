@@ -6,6 +6,6 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-src/bitcoin_float_monitor.egg-info/
+src/crypto_float_monitor.egg-info/
 AppDir/
 *.AppImage

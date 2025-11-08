@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bitcoin-float-monitor"
+name = "crypto-float-monitor"
 version = "0.1.0"
 description = "Floating desktop widget that shows real-time Bitcoin price from Binance"
 readme = "README.md"
@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.scripts]
-bitcoin-float-monitor = "bitcoin_float_monitor.main:main"
+crypto-float-monitor = "crypto_float_monitor.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

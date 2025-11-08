@@ -31,7 +31,7 @@ class FloatingPriceWidget(QtWidgets.QWidget):
         self.setLayout(container)
 
         self.setFixedWidth(300)
-        self.setWindowTitle("Bitcoin Float Monitor")
+        self.setWindowTitle("Crypto Float Monitor")
         self.setWindowFlags(
             QtCore.Qt.WindowType.FramelessWindowHint
             | QtCore.Qt.WindowType.WindowStaysOnTopHint

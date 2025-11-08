@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Final
 
-CONFIG_DIR_NAME: Final[str] = "bitcoin-float-monitor"
+CONFIG_DIR_NAME: Final[str] = "crypto-float-monitor"
 CONFIG_FILE_NAME: Final[str] = "config.json"
 DEFAULT_CONFIG: Final[dict[str, str]] = {"symbol": "BTCUSDT"}
 

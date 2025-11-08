@@ -1,9 +1,9 @@
-# bitcoin-float-monitor
+# crypto-float-monitor
 
 Floating PyQt6 widget that keeps the Bitcoin price (pair `BTCUSDT`) in real time using Binance's official stream. The value stays on top of the desktop, changes color according to price movement (green for up, red for down), and you can exit quickly with the `q` key.
 
 <p align="center">
-  <img src="https://github.com/fberbert/bitcoin-float-monitor/raw/main/assets/bitcoin-float-monitor.gif" alt="Bitcoin Float Monitor demo" />
+  <img src="https://github.com/fberbert/crypto-float-monitor/raw/main/assets/crypto-float-monitor.gif" alt="Crypto Float Monitor demo" />
 </p>
 
 ## Requirements
@@ -17,7 +17,7 @@ Floating PyQt6 widget that keeps the Bitcoin price (pair `BTCUSDT`) in real time
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .
-bitcoin-float-monitor
+crypto-float-monitor
 ```
 
 The widget opens as a small floating window and remains visible at all times:
@@ -28,7 +28,7 @@ The widget opens as a small floating window and remains visible at all times:
 
 ## Configuration
 
-On first launch the app creates a config file at `${XDG_CONFIG_HOME:-$HOME/.config}/bitcoin-float-monitor/config.json`. The default content is:
+On first launch the app creates a config file at `${XDG_CONFIG_HOME:-$HOME/.config}/crypto-float-monitor/config.json`. The default content is:
 
 ```json
 {
@@ -44,8 +44,8 @@ The repository ships with an AppImage recipe under `AppDir/`. To build and run l
 
 ```bash
 appimagetool AppDir
-chmod +x Bitcoin_Float_Monitor-x86_64.AppImage
-./Bitcoin_Float_Monitor-x86_64.AppImage
+chmod +x Crypto_Float_Monitor-x86_64.AppImage
+./Crypto_Float_Monitor-x86_64.AppImage
 ```
 
 For end users, distribute the generated `.AppImage` binary—after downloading they only need to `chmod +x` and execute it.
@@ -53,9 +53,9 @@ For end users, distribute the generated `.AppImage` binary—after downloading t
 ## Project structure
 
 - `pyproject.toml` – app metadata and dependencies.
-- `src/bitcoin_float_monitor/binance_client.py` – WebSocket client that consumes the `BTCUSDT@trade` stream.
-- `src/bitcoin_float_monitor/widget.py` – Qt widget responsible for the floating UI.
-- `src/bitcoin_float_monitor/main.py` – entry point (`bitcoin-float-monitor`).
+- `src/crypto_float_monitor/binance_client.py` – WebSocket client that consumes the `BTCUSDT@trade` stream.
+- `src/crypto_float_monitor/widget.py` – Qt widget responsible for the floating UI.
+- `src/crypto_float_monitor/main.py` – entry point (`crypto-float-monitor`).
 
 ## Author
 
