@@ -2,7 +2,9 @@
 
 Floating PyQt6 widget that keeps the Bitcoin price (pair `BTCUSDT`) in real time using Binance's official stream. The value stays on top of the desktop, changes color according to price movement (green for up, red for down), and you can exit quickly with the `q` key.
 
-![Bitcoin Float Monitor demo](https://github.com/fberbert/bitcoin-float-monitor/raw/main/assets/bitcoin-float-monitor.gif)
+<p align="center">
+  <img src="https://github.com/fberbert/bitcoin-float-monitor/raw/main/assets/bitcoin-float-monitor.gif" alt="Bitcoin Float Monitor demo" />
+</p>
 
 ## Requirements
 
@@ -43,8 +45,8 @@ For end users, distribute the generated `.AppImage` binary—after downloading t
 - `src/bitcoin_float_monitor/widget.py` – Qt widget responsible for the floating UI.
 - `src/bitcoin_float_monitor/main.py` – entry point (`bitcoin-float-monitor`).
 
-## Next ideas
+## Author
 
-- Add automated tests for the price formatter.
-- Allow configuring the pair/symbol via CLI.
-- Provide packaged binaries (AppImage, Flatpak, etc.) to simplify installation.
+- Fábio Berbert de Paula
+- fberbert@gmail.com
+- https://github.com/fberbert/
