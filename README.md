@@ -26,6 +26,18 @@ The widget opens as a small floating window and remains visible at all times:
 - Press `q` at any time to quit the app.
 - The price color indicates the latest move (green = up, red = down).
 
+## Configuration
+
+On first launch the app creates a config file at `${XDG_CONFIG_HOME:-$HOME/.config}/bitcoin-float-monitor/config.json`. The default content is:
+
+```json
+{
+  "symbol": "BTCUSDT"
+}
+```
+
+Edit the `symbol` value to monitor another Binance pair (e.g., `ETHUSDT`). The app reads this file every time it starts.
+
 ### AppImage build
 
 The repository ships with an AppImage recipe under `AppDir/`. To build and run locally:
