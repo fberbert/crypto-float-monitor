@@ -16,7 +16,11 @@ def main() -> None:
     print("[Main] Inicializando QApplication...", flush=True)
     app = QtWidgets.QApplication(sys.argv)
     settings = StreamSettings(symbol=config.symbol)
-    widget = FloatingPriceWidget(settings=settings)
+    widget = FloatingPriceWidget(
+        settings=settings,
+        alert_above=config.alert_above,
+        alert_below=config.alert_below,
+    )
     widget.show()
     print("[Main] Widget exibido, iniciando loop de eventos.", flush=True)
     sys.exit(app.exec())

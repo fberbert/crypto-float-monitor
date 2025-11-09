@@ -24,6 +24,7 @@ The widget opens as a small floating window and remains visible at all times:
 
 - Click and drag to reposition.
 - Press `q` at any time to quit the app.
+- Double-click the widget to edit alert thresholds without touching the config file.
 - The price color indicates the latest move (green = up, red = down).
 
 ## Configuration
@@ -32,23 +33,37 @@ On first launch the app creates a config file at `${XDG_CONFIG_HOME:-$HOME/.conf
 
 ```json
 {
-  "symbol": "BTCUSDT"
+  "symbol": "BTCUSDT",
+  "alert_above": null,
+  "alert_below": null
 }
 ```
 
-Edit the `symbol` value to monitor another Binance pair (e.g., `ETHUSDT`). The app reads this file every time it starts.
+Edit the `symbol` value to monitor another Binance pair (e.g., `ETHUSDT`). Set `alert_above` or `alert_below` to a numeric price (or keep `null` to disable) to receive audio notices whenever the price crosses those thresholds. Alerts reuse local MP3 files in `assets/alert_above.mp3` and `assets/alert_below.mp3`, enforce a 60-second cooldown, and can be updated in-app by double-clicking the widget (the modal writes your changes back to `config.json`). The app reads this file every time it starts.
 
 ### AppImage build
 
-The repository ships with an AppImage recipe under `AppDir/`. To build and run locally:
+The repository ships with an AppImage recipe under `scripts/build_appimage.sh`. To build and run locally:
 
 ```bash
-appimagetool AppDir
+scripts/build_appimage.sh
+./appimagetool build/AppDir Crypto_Float_Monitor-x86_64.AppImage
 chmod +x Crypto_Float_Monitor-x86_64.AppImage
 ./Crypto_Float_Monitor-x86_64.AppImage
 ```
 
 For end users, distribute the generated `.AppImage` binary—after downloading they only need to `chmod +x` and execute it.
+The build process copies the bundled MP3 alert sounds into the AppImage, so the package is self-contained even on systems sem áudio pré-instalado.
+
+
+#### GitHub Actions release
+
+CI/CD is available via the *Release AppImage* workflow (Actions tab). Run the workflow manually, provide a tag such as `v0.1.1`, and it will:
+
+1. Build the AppImage using `scripts/build_appimage.sh`.
+2. Run basic checks.
+3. Create the git tag and publish a GitHub Release with the generated AppImage attached.
+
 
 ## Project structure
 

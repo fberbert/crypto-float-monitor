@@ -14,6 +14,7 @@ license = { text = "MIT" }
 requires-python = ">=3.10"
 dependencies = [
     "PyQt6>=6.6",
+    "PyQt6-Qt6>=6.6",
     "websocket-client>=1.7",
 ]
 
@@ -22,3 +23,7 @@ crypto-float-monitor = "crypto_float_monitor.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+
+[tool.setuptools.package-data]
+"crypto_float_monitor" = ["assets/*.mp3"]
