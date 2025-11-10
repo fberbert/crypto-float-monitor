@@ -13,6 +13,10 @@ from PyQt6.QtMultimedia import QAudioOutput, QMediaPlayer
 from .binance_client import BinancePriceStreamer, StreamSettings
 from .config import save_alerts
 
+DEBUG = False
+
+DEBUG = False
+
 
 class FloatingPriceWidget(QtWidgets.QWidget):
     """A frameless, draggable widget that stays on top of the desktop."""
@@ -234,6 +238,8 @@ class FloatingPriceWidget(QtWidgets.QWidget):
 
     @staticmethod
     def _log(message: str) -> None:
+        if not DEBUG:
+            return
         print(f"[FloatingPriceWidget] {message}", flush=True)
 
     @staticmethod

@@ -11,6 +11,10 @@ from dataclasses import dataclass
 from PyQt6 import QtCore
 import websocket
 
+DEBUG = False
+
+DEBUG = False
+
 
 @dataclass(frozen=True)
 class StreamSettings:
@@ -112,4 +116,6 @@ class BinancePriceStreamer(QtCore.QObject):
         self._log(f"Preço recebido: {price}")
 
     def _log(self, message: str) -> None:
+        if not DEBUG:
+            return
         print(f"[BinancePriceStreamer] {message}", flush=True)
